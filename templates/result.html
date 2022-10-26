@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Previção de Doença Cardiaca</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body class="result-body">
+    <main class="result-main">   
+    {% if result == "Há alta suspeita de doença cardiaca": %}
+        <p class="danger">Você possui alto risco de doença cardiaca. Veja um medico assim que possivel.</p>
+        <p class="resources">Veja esses recursos para conhecer melhor sobre doenças cardiacas</p>
+        <ul>
+            <li><a href="https://www.ipemed.com.br/blog/doencas-do-coracao">Quais são as principais doenças do coração?</a></li>
+            <li><a href="https://www.healthy-heart.org/pt/viver-com-doenca-cardiaca/">Viver com doença cardíaca</a></li>
+            <li><a href="https://www.healthy-heart.org/pt/o-seu-coracao/">Saiba como o coração funciona e descubra os sinais de alerta</a></li>
+        </ul>
+    {% elif result == "Há baixa suspeita de doença cardiaca" %}
+        <p class="out-of-danger">Você possui baixo risco de doença cardiaca. Mantenha os bons habitos! Em caso de suspeita consulte um especialista.</p>
+        <p class="resources">Esses recursos irão lhe ajudar a manter a saúde do coração em dia</p>
+        <ul>
+            <li><a href="https://www.healthy-heart.org/pt/mantenha-o-seu-coracao-saudavel/">Mantenha o seu coração saudável</a></li>
+            <li><a href="https://www.clivalemais.com.br/saiba-mais/blog/proteja-seu-coracao-como-evitar-as-doencas-cardiovasculares">Como evitar as doenças cardiovasculares</a></li>
+        </ul>
+    {% endif %}
+    </main>
+</body>
+</html>

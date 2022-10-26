@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+  
+    <title>Previção de Doença Cardiaca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body>
+    <h1 class="appname textclr">Avaliação de Doença Cardiaca</h1>
+    <main>
+        <section class="info-section">
+            <div class="info-desc">
+                <p class="textclr">
+                    As doenças cardiovasculares DCVs são a causa número 1 de morte em todo o mundo, levando cerca de 17,9 milhões de vidas a cada ano, o que representa 31% de todas as mortes em todo o mundo. 
+                </p>
+                <p class="textclr">
+                    Pessoas com doença cardiovascular ou com alto risco cardiovascular -devido à presença de um ou mais fatores de risco, como hipertensão, diabetes, hiperlipidemia ou doença já estabelecida- precisam de detecção e gerenciamento precoces, onde um modelo de aprendizado de máquina pode ser de grande ajuda.
+                </p>
+            </div>
+        </section>
+        <section class="info-section">
+            <div class="info-desc">
+                <p class="textclr">
+                    Essa avaliação de decteção de doença cardiaca possui como foco a identificação para acompanhamento e tratamento o quanto antes. O modelo de machine learning utilizado para a previsão possui 88% de acuracia, o que é um bom resultado para a previsão de doenças cardiovasculares mas é sempre necessario um acompanhamento médico para confirmar o diagnóstico.
+                </p>
+                <p class="textclr">
+                    A avaliação é facil mas recomendamos o acompanhamento de profissional da saúde adequado, iremos precisar apenas alguns minutos da sua atenção e proveremos o resultado instantaneamente.
+                </p>
+                <button class="start-btn" type="button" onclick="window.location.href='{{ url_for('quest_form') }}';">Iniciar Avaliação</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Desenvolvido por: Gabriel Coelho</p>
+    </footer>
+    <script type="text/javascript" src="{{ url_for('static',filename='script/script.js') }}"></script>
+</body>
+</html>
