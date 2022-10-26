@@ -16,38 +16,50 @@
     <h1 class="appname textcl">Avaliação de Doença Cardiaca</h1>
     <main class='login'>
         <form action="{{ url_for('result')}}" method="post">
-            <p class="question textclr"> Qual sua idade? </p>
-            <input class="age-input textclr" type="number" name="Age" placeholder="Insira aqui o valor numerico" required="required"/><br> 
+            
             <p class="question textclr"> Qual seu sexo? </p>
             <label class="textclr"><input class="radio-input textclr" type="radio" name="Sex" value="M" required="required"/> Masculino </label>
             <label class="textclr"><input class="radio-input textclr" type="radio" name="Sex" value="F" required="required"/> Femenino </label><br>
+            
             <p class="question textclr"> Que tipo de dor no peito você apresentou? </p>
-            <label class="textclr"><input class="radio-input textclr" type="radio" name="ChestPain" value="TA" required="required"/> Angina típica </label>
-            <label class="textclr"><input class="radio-input textclr" type="radio" name="ChestPain" value="ATA" required="required"/> Angina atípica </label>
-            <label class="textclr"><input class="radio-input textclr" type="radio" name="ChestPain" value="NAP" required="required"/> Dor não anginosa </label>
-            <label class="textclr"><input class="radio-input textclr" type="radio" name="ChestPain" value="ASY" required="required"/> Assintomático </label><br>
-            <p class="question textclr">Qual sua pressão arterial em repouso? (em mm Hg)</p>
-            <input type="number" name="RestingBP" placeholder="Insira aqui o valor numerico" required="required"/><br>
-            <p class="question textclr">Qual seu colesterol sérico? (em mm/dl)</p>
-            <input type="number" name="Cholesterol" placeholder="Insira aqui o valor numerico" required="required"/><br>
-            <p class="question textclr">Qual seu nível de glicose em jejum?</p>
-            <label class="textclr"><input class="radio-input textclr" type="radio" name="FastingBS" value=1 required="required"/>  > 120 mg/dl </label>
-            <label class="textclr"><input class="radio-input textclr" type="radio" name="FastingBS" value=0 required="required"/> Outros casos </label><br>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="ChestPainType" value="TA" required="required"/> Angina típica </label>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="ChestPainType" value="ATA" required="required"/> Angina atípica </label>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="ChestPainType" value="NAP" required="required"/> Dor não anginosa </label>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="ChestPainType" value="ASY" required="required"/> Assintomático </label><br>
+            
             <p class="question textclr">Qual seu resultado do eletrocardiograma?</p>
             <label class="textclr"><input class="radio-input textclr" type="radio" name="RestingECG" value="Normal" required="required"/> Normal </label>
             <label class="textclr"><input class="radio-input textclr" type="radio" name="RestingECG" value="ST" required="required"/> Anormalidade do ST-T </label>
             <label class="textclr"><input class="radio-input textclr" type="radio" name="RestingECG" value="LVH" required="required"/> Hipertrofia ventricular esquerda </label><br>
+            
+            <p class="question textclr">Qual sua inclinação do segmento ST no pico do exercício?</p>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="ST_Slope" value="Up" required="required"/> Ascendente </label>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="ST_Slope" value="Flat" required="required"/> Plano </label>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="ST_Slope" value="Down" required="required"/> Descendente </label><br>
+
+            <p class="question textclr"> Qual sua idade? </p>
+            <input class="age-input textclr" type="number" name="Age" placeholder="Insira aqui o valor numerico" required="required"/><br> 
+            
+            <p class="question textclr">Qual sua pressão arterial em repouso? -em mm Hg-</p>
+            <input type="number" name="RestingBP" placeholder="Insira aqui o valor numerico" required="required"/><br>
+            
+            <p class="question textclr">Qual seu colesterol sérico? -em mm/dl-</p>
+            <input type="number" name="Cholesterol" placeholder="Insira aqui o valor numerico" required="required"/><br>
+            
+            <p class="question textclr">Qual seu nível de glicose em jejum?</p>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="FastingBS" value=1 required="required"/>  > 120 mg/dl </label>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="FastingBS" value=0 required="required"/> Outros casos </label><br>
+            
             <p class="question textclr">Qual sua frequência cardíaca máxima?</p>
             <input type="number" name="MaxHR" placeholder="Insira aqui o valor numerico" required="required"/><br>
-            <p class="question textclr">Durante o exeme de exercicio apresentou Angina?</p>
-            <label class="textclr"><input class="radio-input textclr" type="radio" name="ExerciseAngina" value="Y" required="required"/> Sim </label>
-            <label class="textclr"><input class="radio-input textclr" type="radio" name="ExerciseAngina" value="N" required="required"/> Não </label><br>
+            
             <p class="question textclr">Qual sua depressão ST induzida pelo exercício?</p>
             <input type="number" name="Oldpeak" placeholder="Insira aqui o valor numerico" required="required"/><br>
-            <p class="question textclr">Qual sua inclinação do segmento ST no pico do exercício?</p>
-            <label class="textclr"><input class="radio-input textclr" type="radio" name="STSlope" value="Up" required="required"/> Ascendente </label>
-            <label class="textclr"><input class="radio-input textclr" type="radio" name="STSlope" value="Flat" required="required"/> Plano </label>
-            <label class="textclr"><input class="radio-input textclr" type="radio" name="STSlope" value="Down" required="required"/> Descendente </label><br>
+            
+            <p class="question textclr">Durante o exeme de exercicio apresentou Angina?</p>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="ExerciseAngina" value=1 required="required"/> Sim </label>
+            <label class="textclr"><input class="radio-input textclr" type="radio" name="ExerciseAngina" value=0 required="required"/> Não </label><br>
+      
 
             <button type="submit" class="btn-submit" onclick="window.location.href='{{ url_for('result') }}';">Avaliar</button>
         </form>

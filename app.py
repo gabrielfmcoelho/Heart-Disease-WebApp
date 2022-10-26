@@ -1,4 +1,4 @@
-import numpy as np
+import pandas as pd
 from flask import Flask, request, render_template
 import joblib
 
@@ -17,17 +17,40 @@ def quest_form():
 
 @app.route('/result',methods=['POST'])
 def result():
-    #int_features = [str(x) for x in request.form.values()]
-    features = [np.array(request.form.values())] 
-    prediction = model.predict(features) 
+    list_cat_features = ['Sex',
+           'ChestPainType',
+           'RestingECG',
+           'ST_Slope']
+    list_num_features = ['Age',
+           'RestingBP',
+           'Cholesterol',
+           'FastingBS',
+           'MaxHR',
+           'Oldpeak',
+           'ExerciseAngina']
+    list_features = list_cat_features + list_num_features
+
+    cat_features = []
+    num_features = []
+
+    for x in list_cat_features:
+        valor_cat = str(request.form.get(x))
+        cat_features.append(valor_cat)
+
+    for x in list_num_features:
+        valor_num = int(request.form.get(x))
+        num_features.append(valor_num)
+
+    features_unidas = cat_features + num_features
+    df = pd.DataFrame([features_unidas], columns=list_features)
+    prediction = model.predict(df) 
     result = prediction[0]
 
-    if result == 1:
-        prediction_text = 'Há alta suspeita de doença cardiaca'
-    else:
-        prediction_text = 'Há baixa suspeita de doença cardiaca'
-    
-    return render_template('result.html', prediction=prediction_text)
+    print(df)
+    print(result)
+
+    return render_template('result.html', previsao=result)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
